@@ -21,5 +21,8 @@ pnpm-debug.log*
 .DS_Store
 bun.*
 
+# Claude Code
+.claude/
+
 package-lock.json
 pnpm-lock.yaml
