@@ -44,20 +44,6 @@ npm run dev
 | `npm run preview`    | Vista previa local antes de desplegar          |
 | `npm run astro`      | Ejecuta comandos CLI de Astro                  |
 
-## 🌐 Despliegue
-
-Este proyecto está configurado para desplegarse fácilmente en:
-- **Netlify**
-- **Vercel**
-- **GitHub Pages**
-
-### Netlify
-1. Haz push de tu código a GitHub
-2. Conecta tu repositorio en [Netlify](https://netlify.com)
-3. Configura:
-   - Build command: `npm run build`
-   - Publish directory: `dist`
-
 ## 📧 Contacto
 
 - **Email:** dsuarezz.cortes@gmail.com
