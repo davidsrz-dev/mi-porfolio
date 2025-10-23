@@ -73,10 +73,4 @@ Este portafolio está basado en el diseño original de [Miguel Ángel Durán (mi
 
 Gracias a midudev por compartir su increíble trabajo con la comunidad.
 
-## 📄 Licencia
-
-El diseño original de midudev está bajo su licencia respectiva. Las modificaciones y personalizaciones son de David Suarez.
-
----
-
 ⭐ Si te gusta este proyecto, dale una estrella en GitHub
