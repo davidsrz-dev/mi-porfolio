@@ -2,8 +2,6 @@
 
 Portafolio web personal desarrollado con Astro, diseñado para mostrar mi experiencia, proyectos y habilidades como Ingeniero de Sistemas.
 
-🌐 **Demo en vivo:** [https://github.com/davidsrz-dev/mi-porfolio](https://github.com/davidsrz-dev/mi-porfolio)
-
 ## 🚀 Tecnologías
 
 - **[Astro](https://astro.build)** - Framework web moderno y rápido
