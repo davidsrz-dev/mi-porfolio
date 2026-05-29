@@ -44,8 +44,8 @@ npm run dev
 
 ## 📧 Contacto
 
-- **Email:** dsuarezz.cortes@gmail.com
-- **LinkedIn:** [David Suarez Cortes](https://www.linkedin.com/in/david-suarez-cortes-9262a9313/)
+- **Email:** carlossuarezcortes17@gmail.com
+- **LinkedIn:** [David Suarez Cortes](https://www.linkedin.com/in/carlos-david-suarez-495702368/)
 - **Ubicación:** Pamplona, Colombia
 
 ## 🙏 Créditos

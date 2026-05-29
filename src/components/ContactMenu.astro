@@ -1,0 +1,174 @@
+---
+const EMAIL = "carlossuarezcortes17@gmail.com"
+const SUBJECT = "Hola David, me gustaría contactarte"
+const enc = encodeURIComponent(SUBJECT)
+
+const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${EMAIL}&su=${enc}`
+const outlookUrl = `https://outlook.live.com/mail/0/deeplink/compose?to=${EMAIL}&subject=${enc}`
+const mailtoUrl = `mailto:${EMAIL}?subject=${enc}`
+
+const itemClass =
+  "flex items-center w-full gap-3 px-4 py-2.5 text-left transition-colors hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-800"
+---
+
+<div class="relative" data-contact-menu>
+  <button
+    type="button"
+    data-contact-trigger
+    aria-haspopup="true"
+    aria-expanded="false"
+    class="inline-flex items-center justify-center gap-2 px-4 py-1 text-gray-800 transition bg-gray-100 border border-gray-300 rounded-full cursor-pointer dark:bg-gray-800 dark:border-gray-600 dark:text-white hover:bg-gray-900 hover:border-gray-700 hover:text-white dark:hover:bg-gray-100 dark:hover:border-gray-300 dark:hover:text-black group max-w-fit text-md focus:outline-none focus-visible:ring focus-visible:ring-sky-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="size-4"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z"
+      ></path>
+      <path d="M3 7l9 6l9 -6"></path>
+    </svg>
+    Contáctame
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="transition-transform size-4 data-[open]:rotate-180"
+      data-contact-chevron
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path d="M6 9l6 6l6 -6"></path>
+    </svg>
+  </button>
+
+  <div
+    data-contact-options
+    role="menu"
+    class="absolute z-20 hidden mt-2 -translate-x-1/2 overflow-hidden text-sm text-gray-700 bg-white border shadow-xl left-1/2 w-60 rounded-xl border-gray-200/80 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-200"
+  >
+    <a href={gmailUrl} target="_blank" rel="noopener noreferrer" role="menuitem" class={itemClass}>
+      <svg class="text-red-500 size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z"></path>
+        <path d="M3 7l9 6l9 -6"></path>
+      </svg>
+      Gmail
+    </a>
+
+    <a href={outlookUrl} target="_blank" rel="noopener noreferrer" role="menuitem" class={itemClass}>
+      <svg class="text-sky-500 size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z"></path>
+        <path d="M3 7l9 6l9 -6"></path>
+      </svg>
+      Outlook
+    </a>
+
+    <button type="button" data-copy-email data-email={EMAIL} role="menuitem" class={`${itemClass} cursor-pointer`}>
+      <svg class="text-gray-400 size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M8 8m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z"></path>
+        <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+      </svg>
+      <span data-copy-label>Copiar correo</span>
+    </button>
+
+    <a href={mailtoUrl} role="menuitem" class={`${itemClass} border-t border-gray-100 dark:border-gray-800`}>
+      <svg class="text-gray-400 size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z"></path>
+        <path d="M3 7l9 6l9 -6"></path>
+      </svg>
+      Abrir app de correo
+    </a>
+  </div>
+</div>
+
+<script>
+  // Listeners globales registrados una sola vez (el script módulo se ejecuta
+  // una vez por sesión, no en cada navegación con View Transitions).
+  function closeAll() {
+    document
+      .querySelectorAll("[data-contact-options]")
+      .forEach((o) => o.classList.add("hidden"))
+    document.querySelectorAll("[data-contact-trigger]").forEach((t) => {
+      t.setAttribute("aria-expanded", "false")
+      t.querySelector("[data-contact-chevron]")?.removeAttribute("data-open")
+    })
+  }
+
+  document.addEventListener("click", (e) => {
+    const target = e.target as Node
+    document.querySelectorAll("[data-contact-menu]").forEach((menu) => {
+      if (!menu.contains(target)) {
+        menu.querySelector("[data-contact-options]")?.classList.add("hidden")
+        const trigger = menu.querySelector("[data-contact-trigger]")
+        trigger?.setAttribute("aria-expanded", "false")
+        trigger
+          ?.querySelector("[data-contact-chevron]")
+          ?.removeAttribute("data-open")
+      }
+    })
+  })
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeAll()
+  })
+
+  // Handlers por instancia: se re-enlazan a los elementos frescos en cada
+  // navegación (los anteriores se liberan con el DOM viejo).
+  function initContactMenu() {
+    document.querySelectorAll("[data-contact-menu]").forEach((menu) => {
+      const trigger = menu.querySelector(
+        "[data-contact-trigger]"
+      ) as HTMLButtonElement | null
+      const options = menu.querySelector(
+        "[data-contact-options]"
+      ) as HTMLElement | null
+      const chevron = menu.querySelector("[data-contact-chevron]")
+      if (!trigger || !options) return
+
+      trigger.addEventListener("click", (e) => {
+        e.stopPropagation()
+        const willOpen = options.classList.contains("hidden")
+        options.classList.toggle("hidden")
+        trigger.setAttribute("aria-expanded", willOpen ? "true" : "false")
+        if (willOpen) chevron?.setAttribute("data-open", "")
+        else chevron?.removeAttribute("data-open")
+      })
+
+      const copyBtn = menu.querySelector(
+        "[data-copy-email]"
+      ) as HTMLButtonElement | null
+      if (copyBtn) {
+        const label = copyBtn.querySelector(
+          "[data-copy-label]"
+        ) as HTMLElement | null
+        const original = label?.textContent ?? "Copiar correo"
+        copyBtn.addEventListener("click", async (e) => {
+          e.stopPropagation()
+          try {
+            await navigator.clipboard.writeText(copyBtn.dataset.email ?? "")
+            if (label) {
+              label.textContent = "¡Copiado! ✓"
+              setTimeout(() => {
+                label.textContent = original
+                options.classList.add("hidden")
+                trigger.setAttribute("aria-expanded", "false")
+                chevron?.removeAttribute("data-open")
+              }, 1200)
+            }
+          } catch {
+            /* clipboard no disponible: no hacemos nada */
+          }
+        })
+      }
+    })
+  }
+
+  document.addEventListener("astro:page-load", initContactMenu)
+</script>
